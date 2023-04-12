@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e52917;
+    font-family: 'Chivo Mono', monospace;
+}
+
+.border-box {
+    box-sizing: border-box;
+    padding: 20px;
+    background-color:#e52917;
+}
+
+.content-box {
+    box-sizing: content-box;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    background-color: #caebf2;
+}
+
+.button, button {
+    border: none;
+    display: flex; 
+    font-family: inherit;
+    text-decoration: none;
+    color: #ffff;
+    padding: 10px;
+    border-radius: 5px;
+    border-bottom: 2px solid rgba (0, 0, 0, 0.3);
+    transition: opacity 0.2s;
+}
+
+button:hover, 
+button:focus,
+.button:hover,
+.button:focus {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.page-header {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+}
+
+
+
+@supports (display: grid) {
+    .grid {
+        display: grid;
+        text-align: center;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-gap: 2px;
+        margin: 10px;
+    }
+    .grid__item {
+        background-color: #00008b;
+        display: inline-block;
+        width: 50%;
+        justify-self: center;
+        padding: 1%;
+        position: relative;
+        min-height: 5px;
+        margin: 10px;
+    }
+    
+    .grid__item:last-child {
+        grid-column: auto / auto;
+        grid-row: auto / auto;
+    }
+}
+
+/* red: #E52917
+*/
