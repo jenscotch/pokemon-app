@@ -1,54 +1,60 @@
-let pokemonList = [
-{
-    name: 'Bulbasaur',
-    height: 2.04,
-    type: ['grass', 'poison']
-},
+let pokemonRepository = (function () {
+    let pokemonList = [
+    {
+        name: 'Bulbasaur',
+        height: 2.04,
+        type: ['grass', 'poison']
+    },
 
-{
-    name: 'Butterfree',
-    height: 3.07,
-    type: ['bug', 'flying']
-},
+    {
+        name: 'Butterfree',
+        height: 3.07,
+        type: ['bug', 'flying']
+    },
 
-{
-    name: 'Caterpie',
-    height: 1,
-    type: ['bug']
-},
+    {
+        name: 'Caterpie',
+        height: 1,
+        type: ['bug']
+    },
 
-{
-    name: 'Chancey',
-    height: 3.07,
-    type: ['normal']
-},
+    {
+        name: 'Chancey',
+        height: 3.07,
+        type: ['normal']
+    },
 
-{
-    name: 'Charmander',
-    height: 2,
-    type: ['fire']
-},
+    {
+        name: 'Charmander',
+        height: 2,
+        type: ['fire']
+    },
 
-{
-    name: 'Jigglypuff',
-    height: 1.08,
-    type: ['normal', 'fairy']
-},
+    {
+        name: 'Jigglypuff',
+        height: 1.08,
+        type: ['normal', 'fairy']
+    },
 
-];
+    ];
 
-/* Above lists the Pokemon inside an array called "pokemonList". The array contains objects with
-characteristics for each Pokemon.*/
+    return {
+        add: function(pokemon) {
+            pokemonList.push(pokemon);
+        },
+        getAll: function() {
+        return pokemonList;
+        }
+    };
+})();
 
-let pokemonLarge = ' - Wow, that\'s a big Pokemon!';
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({ name: 'Pikachu' });
+console.log(pokemonRepository.getAll());
 
-for (let i=0; i < pokemonList.length; i++) {
-   if (pokemonList[i].height >= 3) {
-      document.write(pokemonList[i].name + ' (height: ' + (pokemonList[i].height) + ')' + (pokemonLarge) + ' <br>');}
-   else {
-      document.write(pokemonList[i].name + ' (height: ' + (pokemonList[i].height) + ')<br>');
-   }
-}
 
-/*this 'for' loop has an 'if...else' statement that will identify any Pokemon that is taller than or equal to 3 and will display
-'wow that's a big pokemon' */ 
+pokemonRepository.getAll().forEach (function(pokemon) {
+    console.log(pokemon.name + pokemon.height + pokemon.type);
+});
+
+
