@@ -26,6 +26,7 @@ body {
     display: flex; 
     font-family: inherit;
     text-decoration: none;
+    background-color: #00008b;
     color: #ffff;
     padding: 10px;
     border-radius: 5px;
