@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #e52917;
+    background-color:#e52917;
     font-family: 'Chivo Mono', monospace;
 }
 
@@ -34,7 +34,7 @@ body {
     transition: opacity 0.2s;
 }
 
-button:hover, 
+button:hover,
 button:focus,
 .button:hover,
 .button:focus {
@@ -48,7 +48,66 @@ button:focus,
     padding: 20px;
 }
 
+#modal-container {
+    display: none;
+}
 
+#modal-container.is-visible {
+    position: fixed;
+    padding: 20px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    overflow: auto;
+    display: grid;
+    text-align: center;
+}
+    
+    /* to show it above other content 
+    z-index: 999; 
+    
+    /* to allow scrolling if the screen is not high enough
+    overflow: auto; 
+    
+    /* this is used to center the modal 
+    display: grid;
+    text-align: center; */
+  
+.modal{
+    margin: auto;
+    display: inline-block;
+    box-sizing: border-box;
+    background: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+  }
+  
+.modal-close {
+    float: right;
+    appearance: none;
+    border: 0;
+    background: none;
+    color: #777;
+    text-decoration: none;
+  }
+  
+.modal-h2 {
+    margin-top: 0;
+    color:#00008b;
+  }
+  
+.modal-p {
+    font-size: 1rem;
+    margin: 15% auto;
+    padding: 20px;
+    color:#e52917;
+  }
 
 @supports (display: grid) {
     .grid {
@@ -57,6 +116,8 @@ button:focus,
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         grid-gap: 2px;
         margin: 10px;
+        list-style-type: none;
+
     }
     .grid__item {
         background-color: #00008b;
@@ -67,6 +128,7 @@ button:focus,
         position: relative;
         min-height: 5px;
         margin: 10px;
+        list-style-type: none;
     }
     
     .grid__item:last-child {
@@ -74,6 +136,3 @@ button:focus,
         grid-row: auto / auto;
     }
 }
-
-/* red: #E52917
-*/
