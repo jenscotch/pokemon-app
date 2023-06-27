@@ -83,7 +83,7 @@ let pokemonRepository = (function () {
 
 
         let pokemonHeight = document.querySelector('.pokemon-height');
-        pokemonHeight.innerText = 'Height:' + item.height;
+        pokemonHeight.innerText = 'Height:' + item.height + 'decimeteres';
 
         let pokemonImage = document.querySelector('.pokemon-image');
         pokemonImage.src = item.imageUrl;
@@ -105,7 +105,7 @@ let pokemonRepository = (function () {
 
         //update list of pokemon based on filter
         let pokemonListElement = document.querySelector('.pokemon-list');
-        pokemonListElement.innerHTML = "";
+        pokemonListElement.innerHTML = '';
         filteredPokemon.forEach(function (item) {
             pokemonRepository.addListItem(item);
         });
