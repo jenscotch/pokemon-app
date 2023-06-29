@@ -95,7 +95,7 @@ let pokemonRepository = (function () {
 
 
         let pokemonHeight = document.querySelector('.pokemon-height');
-        pokemonHeight.innerText = 'Height:' + item.height / 10 + 'meters';
+        pokemonHeight.innerText = 'Height: ' + item.height / 10 + 'meters';
 
         let typesPokemon = document.createElement('p');
         typesPokemon.innerText = 'Type: ' + item.types;
