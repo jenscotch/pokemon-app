@@ -90,10 +90,11 @@ let pokemonRepository = (function () {
 
     function showModal(item) {
         let modalBody = document.querySelector('.modal-body');
+        let modalImage = document.querySelector('.pokemon-image')
         modalBody.innerHTML = '';
          
         let pokemonName = document.querySelector('.pokemon-name');
-        pokemonName.innerText = item.name.toUpperCase();
+        pokemonName.innerText = item.name.charAt(0).toUpperCase() + item.name.slice(1);
 
 
         let pokemonHeight = document.querySelector('.pokemon-height');
@@ -111,6 +112,7 @@ let pokemonRepository = (function () {
         modalBody.appendChild(pokemonHeight);
         modalBody.appendChild(typesPokemon);
         modalBody.appendChild(abilitiesPokemon);
+        modalImage.appendChild(pokemonImage);
 
     }
 
