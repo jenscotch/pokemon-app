@@ -27,7 +27,7 @@ let pokemonRepository = (function () {
             pokemonList.classList.add('list-group-item');
 
             let button = document.createElement('button');
-            button.innerText = pokemon.name.toUpperCase;
+            button.innerText = pokemon.name.toUpperCase();
             button.classList.add('btn');
             button.classList.add('btn-primary');
             button.setAttribute('data-toggle', 'modal');
