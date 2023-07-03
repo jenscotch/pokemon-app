@@ -89,6 +89,8 @@ let pokemonRepository = (function () {
 }
 
     function showModal(item) {
+        let modalBody = document.querySelector('.modal-body');
+        modalBody.innerHTML = '';
          
         let pokemonName = document.querySelector('.pokemon-name');
         pokemonName.innerText = item.name.toUpperCase();
@@ -105,6 +107,10 @@ let pokemonRepository = (function () {
 
         let pokemonImage = document.querySelector('.pokemon-image');
         pokemonImage.src = item.imageUrl;
+
+        modalBody.appendChild(pokemonHeight);
+        modalBody.appendChild(typesPokemon);
+        modalBody.appendChild(abilitiesPokemon);
 
     }
 
