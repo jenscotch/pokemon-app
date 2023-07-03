@@ -89,9 +89,9 @@ let pokemonRepository = (function () {
 }
 
     function showModal(item) {
-        /*let modalBody = document.querySelector('.modal-body');
+        let modalBody = document.querySelector('.modal-body');
         let modalImage = document.querySelector('.pokemon-image')
-        modalBody.innerHTML = '';*/
+        modalBody.innerHTML = '';
          
         let pokemonName = document.querySelector('.pokemon-name');
         pokemonName.innerText = item.name.charAt(0).toUpperCase() + item.name.slice(1);
@@ -109,10 +109,10 @@ let pokemonRepository = (function () {
         let pokemonImage = document.querySelector('.pokemon-image');
         pokemonImage.src = item.imageUrl;
 
-        /*modalBody.appendChild(pokemonHeight);
+        modalBody.appendChild(pokemonHeight);
         modalBody.appendChild(typesPokemon);
         modalBody.appendChild(abilitiesPokemon);
-        modalImage.appendChild(pokemonImage);*/
+        modalImage.appendChild(pokemonImage);
 
     }
 
