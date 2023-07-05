@@ -15,10 +15,11 @@ body {
 
 .list-group-item {
     display: grid;
-    text-align: center;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 0px;
-    margin: 20px;
+    margin: auto;
+    padding: 0px;
+    line-height: 1.25rem;
     list-style-type: none;
     background-color: #caebf2;
     
@@ -44,7 +45,6 @@ body {
     display: flex; 
     flex-wrap: wrap;
     font-family: inherit;
-    text-align: center;
     background-color: #00008b;
     color: #ffff;
     padding: 10px;
