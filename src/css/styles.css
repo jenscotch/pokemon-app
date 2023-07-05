@@ -56,4 +56,18 @@ body {
     display: inline-block;
 }
 
+.modal-header {
+    border: none;
+}
 
+.modal-title {
+    margin-top: 20px;
+    width: 50%;
+}
+
+.modal-body {
+    bottom: 0;
+    padding: 10px 10px 10px 0;
+    position: absolute;
+    text-align: center;
+}
