@@ -27,11 +27,11 @@ let pokemonRepository = (function () {
             pokemonList.classList.add('list-group-item');
 
             let button = document.createElement('button');
-            button.innerText = pokemon.name.toUpperCase();
+            button.innerText = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
             button.classList.add('btn');
             button.classList.add('btn-primary');
             button.setAttribute('data-toggle', 'modal');
-            button.setAttribute('data-target', '#exampleModal');
+            button.setAttribute('data-target', '.modal');
             listItem.appendChild(button);
 
             pokemonList.appendChild(listItem);
@@ -64,19 +64,23 @@ let pokemonRepository = (function () {
         }).then(function (details) {
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
-            showModal(item);
 
             let pokemonTypes = [];
-            details.types.forEach(function (item) {
-                pokemonTypes.push(item.type.name);
-            });
-            item.types = pokemonTypes.join(', ');
+               details.types.map(function (it) {
+                 pokemonTypes.push(it.type.name);
+                 return it.type.name;
+             });
+             item.types = pokemonTypes.join(', ').toUpperCase();
 
-            let pokemonAbilities = [];
-            details.abilities.forEach(function (item) {
-                pokemonAbilities.push(item.ability.name);
-            });
-            item.abilities = pokemonAbilities.join(', ');
+             let pokemonAbilities = [];
+                details.abilities.map(function (it) {
+                 pokemonAbilities.push(it.ability.name);
+                 return it.ability.name;
+             });
+             item.abilities = pokemonAbilities.join(', ').toUpperCase();
+
+            showModal(item);
+
         }).catch(function (e) {
             console.error(e);
         });
@@ -90,30 +94,27 @@ let pokemonRepository = (function () {
 
     function showModal(item) {
         let modalBody = document.querySelector('.modal-body');
-        let modalImage = document.querySelector('.pokemon-image')
         modalBody.innerHTML = '';
+
+        let pokemonImage = document.querySelector('.pokemon-image');
+        pokemonImage.src = item.imageUrl;
          
         let pokemonName = document.querySelector('.pokemon-name');
         pokemonName.innerText = item.name.charAt(0).toUpperCase() + item.name.slice(1);
 
 
-        let pokemonHeight = document.querySelector('.pokemon-height');
-        pokemonHeight.innerText = 'Height: ' + item.height / 10 + 'meters';
+        let pokemonHeight = document.createElement('p');
+        pokemonHeight.innerText = 'Height: ' + item.height / 10 + ' meters';
 
-        let typesPokemon = document.querySelector('.pokemon-type');
+        let typesPokemon = document.createElement('p');
         typesPokemon.innerText = 'Type: ' + item.types;
 
-        let abilitiesPokemon = document.querySelector('.pokemon-abilities');
+        let abilitiesPokemon = document.createElement('p');
         abilitiesPokemon.innerText = 'Abilities: ' + item.abilities;
-
-        let pokemonImage = document.querySelector('.pokemon-image');
-        pokemonImage.src = item.imageUrl;
 
         modalBody.appendChild(pokemonHeight);
         modalBody.appendChild(typesPokemon);
         modalBody.appendChild(abilitiesPokemon);
-        modalImage.appendChild(pokemonImage);
-
     }
 
     //search function
@@ -160,7 +161,3 @@ pokemonRepository.loadList().then(function() {
     });
 });
 
-
-/*
-pokemonRepository.add({ name: 'Pikachu' });
-console.log(pokemonRepository.getAll()); */
